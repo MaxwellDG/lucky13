@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Cormorant+Garamond&family=Dancing+Script:wght@500&family=Mallanna&family=Pacifico&display=swap');
+
+$font-cursive: 'Dancing Script', cursive;
+$font-info:'Cormorant Garamond', serif;
+$font-text: 'Cormorant Garamond', serif;
+$font-checkout: 'Comfortaa', cursive;
+$font-checkout-cursive: 'Pacifico', cursive;
+$color-accent: rgb(53, 181, 172);
+$color-focus: rgba(255, 255, 255, 0.4);
+$color-unfocus: rgb(0, 128, 128);
+
+#carousel-container{
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.slide{
+    position: relative;
+    transition: 0.5s;        
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin: 0 auto;
+
+    img{
+        border-radius: 5px;
+        width: 750px;
+    }
+}
+
+// ALIGN-SELF for each specific image can help if it's not centered around the actual tattoo part //
+
+.carousel-button{
+    background: transparent;
+    height: 50%;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10%;
+    z-index: 100;
+    transition: 300ms;
+    background: rgba(0,0,0,0.3);
+
+    &:hover{
+        background: rgba(0,0,0,0.7);
+    }
+}
+
+#carousel-left{
+    left: -3%;
+}
+
+#carousel-right{
+    right: -3%;
+}

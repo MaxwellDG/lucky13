@@ -1,0 +1,94 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Cormorant+Garamond&family=Dancing+Script:wght@500&family=Mallanna&family=Pacifico&display=swap');
+
+$font-cursive: 'Dancing Script', cursive;
+$font-info:'Cormorant Garamond', serif;
+$font-text: 'Cormorant Garamond', serif;
+$font-checkout: 'Comfortaa', cursive;
+$font-checkout-cursive: 'Pacifico', cursive;
+$font-color-accent: rgb(23, 61, 56);
+
+a{
+    text-decoration: none;
+    color: $font-color-accent;
+    font-family: $font-info;
+}
+
+.side-drawer{
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgb(187, 241, 241);
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+    width: 60%;
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: transform 300ms ease-out;
+
+    ul{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+
+    li{
+        list-style: none;
+        font-size: 2.5rem;
+        margin: 0.8rem;
+    }
+
+    li a:hover{
+        color:white;
+    }
+
+    li a:active{
+        color: grey;
+    }
+
+}
+
+.side-drawer.open{
+    transform: translateX(0);
+}
+
+#side-backdrop{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 100;
+}
+
+#icon-ham{
+    display: flex;
+    flex-direction: column;
+    height: 30px;
+    background: transparent;
+    border: none;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  
+  #icon-ham:focus{
+    outline: none;
+  }
+  
+  .icon-ham-line{
+    width: 50px;
+    height: 3px;
+    background: rgb(23, 61, 56);
+  }
+
+  
+@media only screen and (min-width: 929px){
+
+    #icon-ham{
+        display: none;
+        margin-right: 15px;
+    }
+
+}

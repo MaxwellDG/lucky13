@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+
+$font-cursive: 'Dancing Script', cursive;
+$font-info:'Cormorant Garamond', serif;
+$font-text: 'Cormorant Garamond', serif;
+$font-checkout: 'Comfortaa', cursive;
+$font-checkout-cursive: 'Pacifico', cursive;
+$color-accent: rgb(53, 181, 172);
+
+
+button{
+    cursor: pointer;
+}
+
+#merch-block{
+    position: relative;
+}
+
+#merch-top{
+    background-color: $color-accent;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    font-size: 64px;
+    padding: 1% 0% 3% 0%;
+}
+
+#merch-checkout-container{
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: white;
+    color: silver;
+    font-size: 12px;
+}
+
+#merch-checkout{
+    position: sticky;
+    top: 0;
+    right: 0;
+    min-height: 250px;
+    border: 1px solid black;
+    text-align: start;
+    padding: 0 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 130px;
+}
+
+#merch-checkout img{
+    margin-top: 25px;
+    width: 48px;
+}
+
+#merch-checkout p{
+    align-self: flex-start;
+}
+
+#merch-x{
+    background: transparent;
+    border: none;
+    padding-right: 5px;
+    margin: 0;
+    height: 20px;
+    cursor: pointer;
+}
+
+#merch-x:hover{
+    color: rgb(228, 13, 13);
+}
+
+
+#total-checkout{
+    border: 3px solid rgb(64, 167, 185);
+    color: rgb(64, 167, 185);
+    padding: 5px;
+    border-radius: 45px;
+    width: 90%;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 18px;
+    background: transparent;
+    margin: 10px 0 15px 0;
+    position: relative;
+
+    a{
+        text-decoration: none;
+        color: rgb(64, 167, 185);
+    }
+}
+
+#total-checkout:hover{
+    a{
+        color: white;
+    }
+}
+
+
+#total-checkout::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(64, 167, 185, 0.8);
+    border-radius: 45px;
+    z-index: -1;
+    color: white;
+    transition: transform 0.5s;
+    transform-origin: 0 0;
+    transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+    transform: scaleX(0);
+  }
+  
+  #total-checkout:hover::before{
+    transform: scaleX(1);
+    border-radius: 45px;
+  }
+
+  
+
+
+#merch-checkout h3{
+    color: black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 2px;
+}
+
+.quantity-button{
+    border: 2px solid rgba(222, 222, 222, 0.5);
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 15px;
+    color: silver;
+    font-weight: 900;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.quantity-button:hover{
+    filter: brightness(25%);
+
+}
+
+.checkout-buttons{
+    border: none;
+    padding: 15px 50px 15px 50px;
+    font-size: 16px;
+    font-weight: 400;
+    border: 3px solid transparent;
+    margin-bottom: 25px;
+    cursor: pointer;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.checkout-buttons:hover{
+    border: 3px solid rgba(112, 16, 16, 0.8);
+}
+
+#total-container{
+    display: flex;
+    width: 100%;
+    border-top: 1px solid black;
+    justify-content: space-between;
+}
+
+#total-container p{
+    margin: 2px;
+}
+
+.check-info-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#tax-container p{
+    padding: 2px;
+}
+
+#items-container{
+    display: flex;
+    flex-direction: column;
+}
+
+
+#merch-items{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    background-color: white;
+}
+
+#merch-item-block{
+    width: 33%;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+
+    label{
+        display: block;
+    }
+
+    img{
+        background: center bottom no-repeat;
+    }
+}
+
+.merch-text{
+    border-bottom: 1px solid black;
+    width: 250px;
+    margin: auto;
+    margin-bottom: 5px;
+    font-size: 28px;
+}
+
+#price{
+    border-bottom: none;
+    border-top: 1px solid black;
+
+}
+
+
+
+#merch-quantity{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    font-size: 24px;
+}
+
+#merch-quantity input{
+    width: 50px;
+}
+
+
+#merch-quantity input{
+    text-align: center;
+    border: none;
+    font-size: 26px;
+}
+
+#merch-block-top p{
+    border-top: 1px solid black;
+    margin: 2px auto;
+    width: 250px;
+}
+
+#merch-block-top img{
+    height: 300px;
+}
+
+#selected-items{
+    margin: 0 5px 10px 5px;
+    padding: 0;
+}
+
+#selected-items li{
+    display: flex;
+    width: 90%;
+    border: 1px solid black;
+    justify-content: space-evenly;
+    margin: 5px 15px 5px 5px;
+    padding: 5px 2px 5px 5px;
+}
+
+/* Checkout */
+
+#checkout-section{
+    background: linear-gradient(180deg, rgba(89, 187, 218, 0.8), rgba(255,0,0,0) 70.71%);
+
+    ul{
+        width: 75%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background: white;
+        border-radius: 7px;
+        padding: 15px;
+        margin-bottom: 55px;
+    }
+
+    li{
+        margin: 25px;
+        height: 200px;
+        background: rgba(255, 228, 196, 0.616);
+        border-radius: 7px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+        img{
+            border-radius: 3px;
+            height: 90%;
+            width: 15%;
+            margin: 15px;
+        }
+
+        div{
+            text-align: center;
+            width: 14%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        #checkout-item-name{
+            font-weight: 800;
+        }
+
+        #checkout-item-x{
+            align-self: flex-start;
+            margin: 15px;
+            background: transparent;
+            border: none;
+            font-weight: 800;
+        }
+
+        #checkout-item-x:hover{
+            color: red;
+        }
+    }
+
+    #stripe-checkout{
+        float: right;
+    }
+}
+
+#checkout-top{
+    display: flex;
+    justify-content: space-between;
+
+    button{
+        background: transparent;
+        border: none;
+        font-size: 20px;
+        color: rgb(16, 82, 156);
+        width: 350px;
+        align-self: flex-start;
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    button:hover{
+        color: white;
+    }
+
+    p{
+        text-align: center;
+        font-family: 'Pacifico', cursive;
+        font-size: 48px;
+    }
+
+    div{
+        width: 350px;
+    }
+}
+
+#stripe-form{
+    display: inline-flex;
+    flex-direction: column;
+    margin: 2% 0px 2% 12%;
+    border-radius: 8px;
+    width: 40%;
+
+    span{
+        display: inline-table;
+        -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
+        -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
+        box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5); 
+        margin: 10px 10px 10px 0;
+    }
+
+    input{
+        height: 25px;
+        border: none;
+        padding: 5px;
+        color: black;
+    }
+}
+
+#stripe-container{
+    background: rgba(89, 166, 218, 0.1);
+
+    img{
+        width: 100px;
+    }
+
+    button{
+        background: rgba(89, 166, 218, 0.5);
+        border: none;
+        padding: 10px;
+        margin-top: 15px;
+        -moz-box-shadow-bottom: 2px 2px 2px rgba(0,0,0,0.5);
+        -webkit-box-shadow-bottom: 2px 2px 2px rgba(0,0,0,0.5);
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+        margin: 10px 10px 10px 0;
+    }
+
+    button:hover{
+        -moz-box-shadow-bottom: 1px 1px 1px rgba(0,0,0,0.5);
+        -webkit-box-shadow-bottom: 1px 1px 1px rgba(0,0,0,0.5);
+        box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    }
+}
+
+#checkout-numbers{
+    font-weight: 800;
+    font-family: "Pacifico", cursive;
+    font-size: 20px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 1440px){
+
+    #merch-item-block{
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 980px){
+
+    #merch-item-block{
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 640px){
+
+    #merch-top{
+        padding-top: 97px;
+    }
+
+
+}
