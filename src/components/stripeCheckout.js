@@ -1,7 +1,7 @@
 import React from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useFormik } from 'formik';
-import axios from 'axios'
+// import axios from 'axios'
 
 export const StripeCheckout = (totalPrice) => {
 
@@ -13,25 +13,22 @@ export const StripeCheckout = (totalPrice) => {
         style: {
           base: {
             iconColor: '#44c128',
-            color: '#000',
+            margin: "25px",
+            color: "black",
             fontWeight: 500,
             fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
             fontSize: '16px',
+            background: "white",
             fontSmoothing: 'antialiased',
             ':-webkit-autofill': {color: '#fce883'},
             '::placeholder': {color: '#000'},
           },
           invalid: {
             iconColor: '#ffc7ee',
-            color: '#ffc7ee',
-          },
-          complete: {
-            /* if you want to add some different colors for when it's completed */
+            color: 'red',
           }
         }
       };
-
-
 
 
     const formik = useFormik({
@@ -51,45 +48,50 @@ export const StripeCheckout = (totalPrice) => {
           if (!stripe || !elements) {
             return;
           }
-          
-          const { data: client_secret } = await axios.post("https://api.homebase.design/lucky13/pay", {
-              amount: parseFloat(totalPrice).toFixed(2) * 100,
-              email: values.email
-          })
+          /*
+                               const { data: client_secret } = await axios.post("https://api.homebase.design/lucky13/pay", {
+                                  amount: parseFloat(totalPrice).toFixed(2) * 100,
+                                  email: values.email
+                              })
 
-          const { error, paymentMethod } = await stripe.createPaymentMethod({
-            type: 'card',
-            card: elements.getElement(CardElement),
-            billing_details: {
-                address: {
-                  city: values.city,
-                  country: "CA",
-                  line1: values.address,
-                  line2: null,
-                  postal_code: values.zip,
-                  state: null
-                },
-                  email: values.email,
-                  name: values.firstName.concat(" ".concat(values.lastName)),
-                  phone: "+15555555555"
-              }
-            })
+                              const { error, paymentMethod } = await stripe.createPaymentMethod({
+                                type: 'card',
+                                card: elements.getElement(CardElement),
+                                billing_details: {
+                                    address: {
+                                      city: values.city,
+                                      country: "CA",
+                                      line1: values.address,
+                                      line2: null,
+                                      postal_code: values.zip,
+                                      state: null
+                                    },
+                                      email: values.email,
+                                      name: values.firstName.concat(" ".concat(values.lastName)),
+                                      phone: "+15555555555"
+                                  }
+                                })
 
-          console.log(paymentMethod)
+                                
 
-          /* maybe nice to add this as a last request before processing       alert(JSON.stringify(values, null, 2)) */
-            
-            if (error) {
-                console.log('[error]', error) /* this is a real website Max. You gotta do error management for once. */
-            } else {
-                console.log('[PaymentMethod]', paymentMethod)
-            }
+                              console.log(paymentMethod)
 
-            const confirmedCardPayment = await stripe.confirmCardPayment(client_secret, {
-                payment_method: paymentMethod.id
-            })
+                                
+                                if (error) {
+                                    console.log('[error]', error) 
+                                } else {
+                                    console.log('[PaymentMethod]', paymentMethod)
+                                }
 
-            console.log(confirmedCardPayment)
+                                const confirmedCardPayment = await stripe.confirmCardPayment(client_secret, {
+                                    payment_method: paymentMethod.id
+                                })
+            */
+
+          alert("Sorry, but we are not accepting purchases at this time. Nothing has been charged to your credit card.")
+
+
+
         }
       });
 
@@ -110,7 +112,7 @@ export const StripeCheckout = (totalPrice) => {
           </span>
           <span>
             <input style={{borderRight: "1px solid grey"}} id="city" name="city" type="text" placeholder="City" onChange={formik.handleChange} value={formik.values.city}/>
-            <input style={{borderRight: "1px solid grey"}} id="province" name="province" type="text" placeholder="ON" value={formik.values.province}/>
+            <input style={{borderRight: "1px solid grey"}} id="province" name="province" type="text" placeholder="ON" value={formik.values.province} readOnly={ true } />
             <input id="zip" name="zip" type="text" placeholder="Postal Code" onChange={formik.handleChange} value={formik.values.zip}/>
           </span>
             <CardElement options={ CARD_OPTIONS }/>

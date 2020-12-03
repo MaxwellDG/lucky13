@@ -12,7 +12,7 @@ export const textBlock2 =
     </div>
 
 export const textBlock3 = 
-    <div style={{background: "rgba(0, 0, 0, 0.4)", padding: "15px", margin:"5% 5% 0 5%", color: "white"}}>
+    <div style={{background: "rgba(0, 0, 0, 0.4)", padding: "15px", margin:"5% 2% 0 2%", color: "white",}}>
         <p style={{fontSize:"24px"}}>Sun to Fri: 12pm - 8pm</p>
         <p style={{fontSize:"24px"}}>Sat: 12pm - 9pm</p>
     </div>

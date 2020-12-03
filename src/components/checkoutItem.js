@@ -6,7 +6,7 @@ export const CheckoutItem = (props) => {
         switch(name){
             case "Lucky13 T-shirt":
                 return "A cotton graphic-T."
-            case "Rocksteady T-shirt":
+            case "Sailors T-shirt":
                 return "A cotton graphic-T with animals with shirts on them."
             case "13 Bracelet":
                 return "An adult-sized bracelet made out of beads."
@@ -25,7 +25,7 @@ export const CheckoutItem = (props) => {
             <div>
                 <p id="checkout-item-name">{ props.name }</p>
             </div>
-            <div>
+            <div id="checkout-desc">
                 <p>{ getItemDescription(props.name) }</p>
             </div>
             <div>
@@ -43,7 +43,7 @@ export const CheckoutItem = (props) => {
                 <p>=</p>
                 <p id="checkout-item-total">${ (props.quantity * props.price) }.00</p>
             </div>
-            <button id="checkout-item-x" onClick={ () => props.removeFunc(props.index) }>X</button>  
+            <button id="checkout-item-x" onClick={ () => props.removeFunc(props.index, props.price * props.quantity) }>X</button>  
         </li>
     )
 

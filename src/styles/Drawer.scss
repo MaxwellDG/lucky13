@@ -1,17 +1,22 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Cormorant+Garamond&family=Dancing+Script:wght@500&family=Mallanna&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Khand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
 
-$font-cursive: 'Dancing Script', cursive;
+
+$font-headers: 'Ubuntu', sans-serif;
 $font-info:'Cormorant Garamond', serif;
 $font-text: 'Cormorant Garamond', serif;
 $font-checkout: 'Comfortaa', cursive;
 $font-checkout-cursive: 'Pacifico', cursive;
 $font-color-accent: rgb(23, 61, 56);
+$color-accent-light:  rgb(187, 241, 241);
+$font-drawer: 'Khand', sans-serif;
 
 a{
     text-decoration: none;
     color: $font-color-accent;
-    font-family: $font-info;
+    font-family: $font-headers;
 }
 
 .side-drawer{
@@ -19,25 +24,49 @@ a{
     position: fixed;
     left: 0;
     top: 0;
-    background: rgb(187, 241, 241);
+    background: $color-accent-light;
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
-    width: 60%;
+    width: 40%;
     z-index: 200;
     transform: translateX(-100%);
     transition: transform 300ms ease-out;
+    display: flex;
+    flex-direction: column;
+    border-right: 4px outset black;
 
     ul{
         list-style: none;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+        align-self: center;
         height: 100%;
+        width: 100%;
+        padding: 0;
+    }
+
+    #drawer-img{
+        width: 100px;
+        margin: 5px;
     }
 
     li{
         list-style: none;
         font-size: 2.5rem;
         margin: 0.8rem;
+        border-bottom: 1px solid rgba(0,0,0,0.4);
+        width: 100%;
+
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .drawer-chevron{
+            transform: rotate(180deg);
+        }
     }
 
     li a:hover{
@@ -52,6 +81,11 @@ a{
 
 .side-drawer.open{
     transform: translateX(0);
+
+    ul{
+        padding: 0;
+    }
+
 }
 
 #side-backdrop{
@@ -59,7 +93,7 @@ a{
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.4);
-    z-index: 100;
+    z-index: 90;
 }
 
 #icon-ham{
@@ -71,6 +105,7 @@ a{
     justify-content: space-between;
     box-sizing: border-box;
     cursor: pointer;
+    margin-right: 15px;
   }
   
   #icon-ham:focus{
@@ -83,6 +118,9 @@ a{
     background: rgb(23, 61, 56);
   }
 
+
+
+
   
 @media only screen and (min-width: 929px){
 
@@ -90,5 +128,14 @@ a{
         display: none;
         margin-right: 15px;
     }
+
+}
+
+@media only screen and (max-width: 700px){
+
+    .side-drawer li{
+        font-size: 20px;
+    }    
+
 
 }

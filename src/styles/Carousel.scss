@@ -12,9 +12,9 @@ $color-unfocus: rgb(0, 128, 128);
 #carousel-container{
     position: relative;
     display: flex;
-    margin: 0 auto;
-    width: 90%;
+    background: $color-accent;
 }
+
 
 .slide{
     position: relative;
@@ -26,13 +26,12 @@ $color-unfocus: rgb(0, 128, 128);
     text-align: center;
     margin: 0 auto;
 
+
     img{
         border-radius: 5px;
-        width: 750px;
+        width: 500px;
     }
 }
-
-// ALIGN-SELF for each specific image can help if it's not centered around the actual tattoo part //
 
 .carousel-button{
     background: transparent;
@@ -59,4 +58,20 @@ $color-unfocus: rgb(0, 128, 128);
 
 #carousel-right{
     right: -3%;
+}
+
+@media only screen and (max-width: 1175px){
+
+    .slide img{
+        width: 450px;
+    }
+
+
+}
+
+@media only screen and (max-width: 1175px){
+
+    .slide img{
+        width: 300px;
+    }
 }

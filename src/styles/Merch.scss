@@ -8,6 +8,7 @@ $font-text: 'Cormorant Garamond', serif;
 $font-checkout: 'Comfortaa', cursive;
 $font-checkout-cursive: 'Pacifico', cursive;
 $color-accent: rgb(53, 181, 172);
+$color-accent-light:  rgb(187, 241, 241);
 
 
 button{
@@ -73,29 +74,33 @@ button{
     color: rgb(228, 13, 13);
 }
 
-
 #total-checkout{
-    border: 3px solid rgb(64, 167, 185);
+    position: relative;
     color: rgb(64, 167, 185);
-    padding: 5px;
     border-radius: 45px;
     width: 90%;
     font-family: 'Ubuntu Condensed', sans-serif;
-    font-size: 18px;
-    background: transparent;
-    margin: 10px 0 15px 0;
-    position: relative;
+    text-decoration: none;
+    border: 3px solid rgb(64, 167, 185);
+    text-align: center;
+    margin: 5px;
 
-    a{
-        text-decoration: none;
+    button{
+        font-size: 18px;
+        border: none;
+        background: transparent;
         color: rgb(64, 167, 185);
     }
 }
 
 #total-checkout:hover{
-    a{
+    button{
         color: white;
     }
+}
+
+#diamond-container{
+    text-align: center;
 }
 
 
@@ -154,13 +159,13 @@ button{
     font-size: 16px;
     font-weight: 400;
     border: 3px solid transparent;
-    margin-bottom: 25px;
+    margin: 0 auto;
     cursor: pointer;
     font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 .checkout-buttons:hover{
-    border: 3px solid rgba(112, 16, 16, 0.8);
+    border: 3px solid $color-accent;
 }
 
 #total-container{
@@ -178,11 +183,6 @@ button{
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-#tax-container p{
-    padding: 2px;
 }
 
 #items-container{
@@ -204,6 +204,10 @@ button{
     width: 33%;
     text-align: center;
     font-family: 'Cormorant Garamond', serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 15px auto;
 
     label{
         display: block;
@@ -216,7 +220,6 @@ button{
 
 .merch-text{
     border-bottom: 1px solid black;
-    width: 250px;
     margin: auto;
     margin-bottom: 5px;
     font-size: 28px;
@@ -224,8 +227,6 @@ button{
 
 #price{
     border-bottom: none;
-    border-top: 1px solid black;
-
 }
 
 
@@ -248,10 +249,20 @@ button{
     font-size: 26px;
 }
 
-#merch-block-top p{
-    border-top: 1px solid black;
-    margin: 2px auto;
-    width: 250px;
+#merch-block-top{
+    display: flex;
+    justify-content: center; 
+
+    p{
+        border-top: 1px solid black;
+        margin: 2px auto;
+        width: 250px;
+    }
+}
+
+#merch-block-bot{
+    display: flex;
+    justify-content: center;
 }
 
 #merch-block-top img{
@@ -275,7 +286,8 @@ button{
 /* Checkout */
 
 #checkout-section{
-    background: linear-gradient(180deg, rgba(89, 187, 218, 0.8), rgba(255,0,0,0) 70.71%);
+    background: rgb(238, 236, 236);
+    height: 100%;
 
     ul{
         width: 75%;
@@ -300,6 +312,7 @@ button{
         -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
         -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
         box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+        position: relative;
 
         img{
             border-radius: 3px;
@@ -326,6 +339,9 @@ button{
             background: transparent;
             border: none;
             font-weight: 800;
+            position: absolute;
+            top: 0;
+            right: 0;
         }
 
         #checkout-item-x:hover{
@@ -342,21 +358,22 @@ button{
     display: flex;
     justify-content: space-between;
 
-    button{
-        background: transparent;
-        border: none;
-        font-size: 20px;
-        color: rgb(16, 82, 156);
-        width: 350px;
-        align-self: flex-start;
-        margin-top: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 
     a{
         text-decoration: none;
+        width: 5%;
+        align-self: flex-start;
+        margin-top: 10px;
+
+        button{
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            white-space: nowrap;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     button:hover{
@@ -367,10 +384,11 @@ button{
         text-align: center;
         font-family: 'Pacifico', cursive;
         font-size: 48px;
+        color: black;
     }
 
     div{
-        width: 350px;
+        width: 5%;
     }
 }
 
@@ -379,14 +397,13 @@ button{
     flex-direction: column;
     margin: 2% 0px 2% 12%;
     border-radius: 8px;
-    width: 40%;
 
     span{
         display: inline-table;
         -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
         -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
         box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5); 
-        margin: 10px 10px 10px 0;
+        margin: 10px 10px 15px 0;
     }
 
     input{
@@ -398,7 +415,7 @@ button{
 }
 
 #stripe-container{
-    background: rgba(89, 166, 218, 0.1);
+    text-align: center;
 
     img{
         width: 100px;
@@ -408,11 +425,10 @@ button{
         background: rgba(89, 166, 218, 0.5);
         border: none;
         padding: 10px;
-        margin-top: 15px;
         -moz-box-shadow-bottom: 2px 2px 2px rgba(0,0,0,0.5);
         -webkit-box-shadow-bottom: 2px 2px 2px rgba(0,0,0,0.5);
         box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
-        margin: 10px 10px 10px 0;
+        margin: 15px 10px 10px 0;
     }
 
     button:hover{
@@ -431,6 +447,12 @@ button{
     flex-direction: column;
 }
 
+#empty-cart{
+
+    text-align: center;
+    padding: 15px;
+}
+
 @media only screen and (max-width: 1440px){
 
     #merch-item-block{
@@ -440,16 +462,102 @@ button{
 
 @media only screen and (max-width: 980px){
 
+
+
     #merch-item-block{
         width: 60%;
     }
+
+    #merch-top{
+        padding-top: 97px;
+
+        h2{
+            font-size: 50px;
+        }
+    }
+
+    #merch-checkout-container{
+        position: relative;
+
+        #merch-checkout{
+            flex-direction: row;
+            min-height: 100px;
+
+            img{
+                margin: 0 1%;
+            }
+            
+            h3{
+                text-align: center;
+                margin: 0 1%;
+            }
+
+            #total-checkout{
+                font-size: 12px;
+            }
+
+            #tax-container{
+                display: flex;
+                flex-direction: column;
+            }
+
+            
+            #total-container{
+                display: flex;
+                flex-direction: column;
+
+                p{
+                    margin: 10px;
+                }
+            }
+
+
+            #diamond-container{
+                text-align: center;
+
+            }
+
+            #items-container{
+                position: relative;
+                min-height: 50px;
+
+                p{
+                }
+            }
+
+            #total-container{
+                border-top: none;
+            }
+        }
+    }
+
+    #checkout-section{
+
+        li{
+            position: relative;
+            height: 300px;
+            margin: 5px;
+
+            #checkout-desc{
+                position: absolute;
+                bottom: 0;
+                width: 90%;
+            }
+
+            img{
+                position: absolute;
+                top: 0;
+                width: 75px;
+                height: 50px;
+            }
+        }
+    }
+
 }
 
 @media only screen and (max-width: 640px){
 
-    #merch-top{
-        padding-top: 97px;
-    }
+
 
 
 }

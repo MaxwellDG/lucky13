@@ -11,13 +11,27 @@ export const SideDrawer = props => {
 
     return(
         <nav className={ drawerClass }>
+            <img id="drawer-img" alt="image_log" src="/images/13logo.png"></img>
             <ul>
-                <li><Link to="/about" onClick={ props.toggleDrawer }>About</Link></li>
-                <li><Link to="/maxine" onClick={ props.toggleDrawer }>Maxine</Link></li>
-                <li><Link to="/jessy" onClick={ props.toggleDrawer }>Jessy</Link></li>
-                <li><Link to="/jesse" onClick={ props.toggleDrawer }>Jesse</Link></li>
-                <li><Link to="/contact" onClick={ props.toggleDrawer }>Contact</Link></li>
-                <li><Link to="/merch" onClick={ props.toggleDrawer }>Merch</Link></li>
+                <li>
+                    <Link to="/about" onClick={ props.toggleDrawer }>About<img alt="image_drawer" src="/images/chevron_carousel.png" className="drawer-chevron"></img></Link>
+
+                </li>
+                <li>
+                    <Link to="/maxine" onClick={ props.toggleDrawer }>Maxine<img alt="image_drawer" src="/images/chevron_carousel.png" className="drawer-chevron"></img></Link>
+                </li>
+                <li>
+                    <Link to="/jessy" onClick={ props.toggleDrawer }>Jessy<img alt="image_drawer" src="/images/chevron_carousel.png" className="drawer-chevron"></img></Link>
+                </li>
+                <li>
+                    <Link to="/jesse" onClick={ props.toggleDrawer }>Jesse<img alt="image_drawer" src="/images/chevron_carousel.png" className="drawer-chevron"></img></Link>
+                </li>
+                <li>
+                    <Link to="/contact" onClick={ props.toggleDrawer }>Contact<img alt="image_drawer" src="/images/chevron_carousel.png" className="drawer-chevron"></img></Link>
+                </li>
+                <li>
+                    <Link to="/merch" onClick={ props.toggleDrawer }>Merch<img alt="image_drawer" src="/images/chevron_carousel.png" className="drawer-chevron"></img></Link>
+                </li>
             </ul>
         </nav>
     )

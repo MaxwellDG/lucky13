@@ -23,12 +23,13 @@ export default class MerchSection extends React.Component{
         })
     }
 
-    removeFromCheckout(index){
+    removeFromCheckout(index, price){
         this.setState((prevState) => {
-            /* this is close, just gotta get it at the correct index */
+            let newArray = Object.assign([], prevState.itemsInCart)
+            newArray.splice(index, 1)
             return{
-                itemsInCart: prevState.itemsInCart.splice(prevState.itemsInCart[index], 1),
-                total: prevState.total
+                itemsInCart: newArray,
+                total: prevState.total - price
             }
         })
     }
@@ -43,7 +44,7 @@ export default class MerchSection extends React.Component{
                     <p>{ value.size }</p>
                     <p>x { value.quantity }</p>
                     <p>$ { value.price * value.quantity }</p>
-                    <button id="merch-x" onClick={() => this.removeFromCheckout(index) }>X</button>
+                    <button id="merch-x" onClick={() => this.removeFromCheckout(index, (value.price * value.quantity)) }>X</button>
                 </li>
             )
         })
@@ -57,8 +58,10 @@ export default class MerchSection extends React.Component{
                         <h2>Merchandise</h2>
                         <div id="merch-checkout-container">
                             <div id="merch-checkout">
+                            <div id="diamond-container">
                                 <img alt="img_diamond" src="images/diamond.png"/>
                                 <h3>Shopping Cart</h3>
+                            </div>
                                 <div className="check-info-container" id="items-container">
                                     <p>Items: </p>
                                     <ul id="selected-items">
@@ -73,7 +76,7 @@ export default class MerchSection extends React.Component{
                                     <p>Total: </p>
                                     <p>{ (this.state.total * 1.13).toFixed(2) }</p>
                                 </div>
-                                <button id="total-checkout"><Link to={{pathname:"/merch/checkout", data: { itemsInCart, total: total * 1.13 }}}>Checkout</Link></button>
+                                <Link id="total-checkout" to={{pathname:"/merch/checkout", data: { itemsInCart, total: total }}}><button >Checkout</button></Link>
                             </div>
                         </div>
                     </div>

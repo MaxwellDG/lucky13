@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Cormorant+Garamond&family=Dancing+Script:wght@500&family=Mallanna&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
 
-$font-cursive: 'Dancing Script', cursive;
-$font-info:'Cormorant Garamond', serif;
-$font-text: 'Cormorant Garamond', serif;
+$font-headers: 'Ubuntu', sans-serif;
+$font-info:'Ubuntu', sans-serif;
+$font-text: 'Ubuntu', sans-serif;
 $font-checkout: 'Comfortaa', cursive;
 $font-checkout-cursive: 'Pacifico', cursive;
 $color-accent: rgb(53, 181, 172);
@@ -15,10 +16,7 @@ label{
 }
 
 html, body{
-  width: 100%;
-  height: 100%;
   margin: 0px;
-  padding: 0;
   overflow-x: hidden; 
   background-color: $color-accent;
 }
@@ -28,23 +26,15 @@ html, body{
 }
 
 h2{
-  font-family: $font-cursive;
+  font-family: $font-headers;
   font-size: 100px;
-  margin: 2px 25%;
+  margin: 2px 10%;
   color: white;
 }
 
 .myMap{
   width: 100%;
   height: 500px;
-}
-
-.trans-page{
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
 }
 
 button{
@@ -282,19 +272,6 @@ button{
   transform: scaleX(1);
 }
 
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
 /* -- Home Section */
 
 #home-block{
@@ -320,17 +297,18 @@ button{
   width: 100%;
   display: flex;
   background-color: $color-accent;
+}
 
-  div{
-    display: flex;
-    flex-direction: column;
-    width: 40%;
 
-    img{
-      width: 300px;
-      align-self: center;
-      padding-left: 250px;
-    }
+#top-bottom{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+
+  img{
+    width: 300px;
+    align-self: flex-end;
+    margin-right: 100px;
   }
 }
 
@@ -352,6 +330,7 @@ button{
   }
 
   #mid-1{
+    width: 50%;
     display: flex;
     flex-direction: column;
 
@@ -374,9 +353,17 @@ button{
   }
 
   #mid-2{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
+    &::before{
+      position: absolute;
+      top: -80px;
+      left: 100px;
+      content: url('../images/spaceship.png');
+    }
   }
 }
 
@@ -384,6 +371,7 @@ button{
 #home-bot-block{
   display: flex;
   width: 100%;
+  justify-content: space-evenly;
 }
 
 .linkButton{
@@ -413,6 +401,15 @@ button{
   background-size: cover;
   height: 600px;
   margin-top: 100px;
+  position: relative;
+
+  &::before{
+    content: url("../images/astronaut.png");
+    position: absolute;
+    top: -108px;
+    left: 60%;
+    z-index: 100;
+  }
 }
 
 #block1:hover{
@@ -427,6 +424,12 @@ button{
   background-size: cover;
   height: 600px;
   margin-left: 50px;
+  filter: grayscale(100%);
+
+    &:hover{
+      filter: grayscale(0);
+      filter: brightness(100%);
+    }
 }
 
 #block2 button{
@@ -437,14 +440,14 @@ button{
 
 #block2 .linkButton{
   font-family: $font-text;
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   white-space: nowrap;
   text-align: center;
   display: flex;
   justify-content: flex-end;
-  background: rgba(0, 0, 0, 0.4) none repeat scroll 0% 0%;
   padding: 15px;
   color: white;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 #block3{
@@ -452,15 +455,7 @@ button{
   background: url('http://lucky13tattoo.ca/wp-content/uploads/2019/06/legs-1.jpeg') center center no-repeat;
   height: 300px;
   background-size: cover;
-  margin: 0 auto;
-}
-
-#mid-1::before{
-  display: block;
-  content: "";
-  width: 100%;
-  height: 50px;
-  background-color: white;
+  margin: 15px auto;
 }
 
 #block3:hover{
@@ -533,26 +528,34 @@ button{
 
 #block7{
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://lucky13tattoo.ca/wp-content/uploads/2019/06/window-1.jpg') center bottom no-repeat;
-  width: 50%;
+  width: 45%;
   height: 200px;
   background-size: cover;
-}
 
-#block7 h2{
-  background: rgba(0, 0, 0, 0.5);
-  padding-right: 5px;
+    h2{
+    background: rgba(0, 0, 0, 0.5);
+    padding-right: 5px;
+  }
+
+  &:hover{
+    filter: brightness(150%);
+  }
 }
 
 #block8{
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://lucky13tattoo.ca/wp-content/uploads/2019/06/paintings-1.jpg') center bottom no-repeat;
-  width: 50%;
+  width: 45%;
   height: 200px;
   background-size: cover;
-}
 
-#block8 h2{
-  background: rgba(0, 0, 0, 0.6);
-  padding-right: 5px;
+  h2{
+    background: rgba(0, 0, 0, 0.6);
+    padding-right: 5px;
+  }
+
+  &:hover{
+    filter: brightness(150%);
+  }
 }
 
 
@@ -591,24 +594,29 @@ button{
 .header-text{
   color: rgb(227, 230, 227);
   text-decoration: none;
-  font-family: $font-cursive;
+  font-family: $font-headers;
   font-size: 1.9rem;
-}
 
-.header-text::after{
-  content: "";
-  display: block;
-  width: 0;
-  height: 3px;
-  background: rgba(0, 0, 0, 0.4);
-  transition: width .3s;
-  margin: 0;
-}
+  &::after{
+    content: "";
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 0;
+    height: 3px;
+    transition: width .3s;
+    margin: 0;
+  }
 
-.header-text:hover::after{
-  width: 100%;
-  transition: width .3s;
-  margin: 0;
+  &:hover::after{
+    width: 100%;
+    transition: width .3s;
+    margin: 0;
+  }
+
+  &:focus{
+    outline: none;
+  }
+
 }
 
 
@@ -668,13 +676,40 @@ button{
 
 /* Media queries */
 
-@media only screen and (max-width: 1275px){
-  #block2 .linkButton{
-    font-size: 30px;
-  }
-}
-
 @media only screen and (max-width: 1175px){
+
+  #block1 p{
+    margin: 10px;
+  }
+
+  #mid-1{
+    width: 100%;
+  }
+
+  #top-bottom{
+    flex-direction: row;
+    width: 100%;
+
+    img{
+      align-self: flex-start;
+      margin: 25px;
+    }
+  }
+
+  #block4{
+    width: 70%;
+    height: 200px;
+    margin-bottom: 15px;
+  }
+  #block5{
+    width: 70%;
+    height: 200px;
+    margin-bottom: 15px;
+  }
+  #block6{
+    width: 70%;
+    height: 200px;
+  }
 
   #nav-bar li{
     margin: 5px 15px 5px 15px;
@@ -697,6 +732,26 @@ button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    #mid-1{
+      width: 100%;
+    }
+
+    #mid-2{
+      width: 100%;
+      display: flex;
+  
+      &::before{
+        top: 35%;
+        left: auto;
+        right: -15%;
+        transform: rotate(270deg);
+      }
+  }
+}
+
+  #home-mid-block #mid-1 div div{
+    flex-direction: row;
   }
 
   #block1{
@@ -707,25 +762,13 @@ button{
     width: 100%;
     height: 400px;
   }
+
   #block3{
+    order: 2;
     width: 100%;
     height: 400px;
   }
-  #block4{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://lucky13tattoo.ca/wp-content/uploads/2019/08/46BA3174-E6A6-4B79-A3CB-C94F44D6A987-1.jpg') center middle no-repeat;
-    width: 95%;
-    height: 250px;
-    margin-bottom: 15px;
-  }
-  #block5{
-    width: 95%;
-    height: 250px;
-    margin-bottom: 15px;
-  }
-  #block6{
-    width: 95%;
-    height: 250px;
-  }
+
   #block7{
     width: 50%;
   }
@@ -736,6 +779,10 @@ button{
   #artist-top-block{
     padding: 1% 5%;
   }
+
+
+
+
 }
 
 @media only screen and (max-width: 930px){
@@ -768,7 +815,7 @@ button{
     width: 100%;
 
     a button{
-      font-size: 1.3rem;
+      font-size: 1.0rem;
     }
   }
 
@@ -788,10 +835,20 @@ button{
   }
 
   #about-top-block{
-    padding: 1% 3%;
+    padding: 0;
+    margin: 0;
+
+    h2{
+      margin: 0 2%;
+      padding: 0;
+    }
+
+    div{
+      margin: 0 2%;
+    }
 
     p{
-      margin: 5%;
+      margin: 0 2%;
     }
   }
 
@@ -800,10 +857,72 @@ button{
     
   }
 
+  #artist-links-top{
+    display: none;
+  }
+
+}
+
+
+@media only screen and (max-width: 760px){
+
+  h2{
+    font-size: 70px;
+  }
+
+  #home-mid-block #mid-2::before{
+    right: -25%;
+  }
+
+  #about-top-block{
+    flex-direction: column;
+
+
+  }
+
+  #block9, #block10, #block11{
+    width: auto;
+  }
+
 }
 
 
 @media only screen and (max-width: 640px){
+
+  #top-bottom img{
+    display: none;
+  }
+
+  #home-mid-block #mid-2::before{
+    display: none;
+  }
+
+  #block4{
+    width: 100%;
+    margin: 10px auto;
+  }
+  #block5{
+    width: 100%;
+    margin: 10px auto;
+  }
+  #block6{
+    width: 100%;
+    margin: 10px auto;
+  }
+
+  #block3{
+    order: 0;
+    width: 80%;
+    margin: 15px 0;
+  }
+
+  #home-mid-block #mid-1 div img{
+    width: 150px;
+  }
+
+  #nav-image-link img{
+    width: 80px;
+  }
 
   #nav-bar{
     position: fixed;
@@ -811,7 +930,7 @@ button{
   }
 
   .whole-container{
-    padding-top: 97px;
+    padding-top: 115px;
   }
 
 
@@ -827,6 +946,10 @@ button{
 
   #nav-container{
     margin: 0;
+  }
+
+  .artist-links button{
+    font-size: 20px;
   }
 
 }

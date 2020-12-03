@@ -3,32 +3,34 @@ import React, { useState } from 'react'
 export const Carousel = props => {
 
     const[currentX, setNewX] = useState(0)
+    const[slides, addMoreSlides] = useState(props.images)
+    const[counterRight, changeCounterRight] = useState(0)
+
 
     function slide(direction){
+        console.log(currentX)
         if(direction === "left"){
-            console.log(`left with x at ${ currentX }`)
-            currentX === 0 ? setNewX((-100) * (props.images.length - 1)) : setNewX(currentX + 100)
+            if(!currentX <= 0){
+                setNewX(currentX + 100)
+            }
         } else {
-            console.log(`right with x at ${ currentX }`)
-            currentX === -100 * (props.images.length - 1) ? setNewX(0) : setNewX(currentX - 100)
-   
+            let slideToBeAdded = slides[counterRight === 7 ? 0 : counterRight]
+            let newSlides = Object.assign([], slides)
+            newSlides.push(slideToBeAdded)
+            addMoreSlides(newSlides)
+            changeCounterRight(counterRight + 1)
+            setNewX(currentX - 100)
     }
 }
 
 
-    /*
-        OMG DO THIS LIKE A WHOLE FUCKIN WIDTH. ANd then make the images be constantly SLOWLY moving over the tattoo.
-        Scanning from all different directions. And at the end of each scan, it skips forward one picture :D 
-    */
-
-
     return(
         <div id="carousel-container">
-            <button className="carousel-button" id="carousel-left" onClick={ () => slide("left") }>
+            <button className="carousel-button" id="carousel-left" onClick={ () => slide("left") } style={{ display: currentX < 0 ? "inline" : "none" }}>
                 <img alt="image_chevron" src="/images/chevron_carousel.png"></img>
             </button>
             {
-                props.images.map((value, index) => {
+                slides.map((value, index) => {
                     return(
                         <li key={ index } className="slide" style={{ transform: `translateX(${currentX}%)` }}>
                             <img src={ value } alt="artist_img"></img>
@@ -36,7 +38,7 @@ export const Carousel = props => {
                     )
                 })
             }
-            <button className="carousel-button" id="carousel-right" onClick={ () => slide("right") }>
+            <button className="carousel-button" id="carousel-right" onClick={ () => slide("right") } >
                 <img alt="image_chevron" src="/images/chevron_carousel.png" style={{transform: `rotate(180deg)`}}></img>
             </button>
         </div>

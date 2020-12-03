@@ -10,12 +10,17 @@ export const HomeSection = () =>{
                     <div id="home-block">
                         <div id="home-top-block">
                             <HomeBlock type="block1" title="LUCKY 13 TATTOOS TORONTO" text={ HomeBlockText.textBlock1 } linkLocation="" linkBlock=""></HomeBlock>
-                            <div>
+                            <div id="top-bottom">
                                 <img alt="img_doodle" src="/images/doodle-heart.png"></img>
                                 <HomeBlock type="block2" title="ABOUT US" text={ HomeBlockText.textBlock2 } linkBlock="READ MORE" linkLocation="about"></HomeBlock>
                             </div>
                         </div>
                         <div id="home-mid-block">
+                            <div id="mid-2">
+                                <HomeBlock title="" text="" type="block4" linkBlock="Maxine" linkLocation="maxine"></HomeBlock>
+                                <HomeBlock title="" text="" type="block5" linkBlock="Jessy" linkLocation="jessy"></HomeBlock>
+                                <HomeBlock title="" text="" type="block6" linkBlock="Jesse" linkLocation="jesse"></HomeBlock>
+                            </div>
                             <div id="mid-1">                       
                                 <HomeBlock type="block3" title="SHOP HOURS" text={ HomeBlockText.textBlock3 } linkLocation="" linkBlock=""></HomeBlock>
                                 <div>
@@ -29,11 +34,7 @@ export const HomeSection = () =>{
                                     </div>
                                 </div>
                             </div> 
-                            <div id="mid-2">
-                                <HomeBlock title="" text="" type="block4" linkBlock="Maxine" linkLocation="maxine"></HomeBlock>
-                                <HomeBlock title="" text="" type="block5" linkBlock="Jessy" linkLocation="jessy"></HomeBlock>
-                                <HomeBlock title="" text="" type="block6" linkBlock="Jesse" linkLocation="jesse"></HomeBlock>
-                            </div>
+
                         </div>
                         <div id="home-bot-block">
                             <a className="block" id="block7" href="https://www.instagram.com/lucky13toronto" target="_blank" rel="noopener noreferrer">

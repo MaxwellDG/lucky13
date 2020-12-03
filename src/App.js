@@ -18,11 +18,6 @@ import { SideBackDrop } from './components/sideBackdrop'
 import { NavBar } from './containers/navBar'
 import { Footer } from './components/footer'
 
-import { loadStripe } from '@stripe/stripe-js'
-import { Elements } from '@stripe/react-stripe-js'
-
-
-const stripePromise = loadStripe("pk_test_51Hlg9aEvWRCo4xK0s9rOhLqxKSI0MxNEHSeGMVBoNVBo53Ls7kEUDHpjC5xmt8Gq79ciiMpGwuyVLagviBkAQCDj00FGPiY7dX")
 
 export const App = () => {
 
@@ -38,25 +33,34 @@ export const App = () => {
     sideBackdrop = <SideBackDrop hamburger={ toggleMobileDrawer }/>
   }
 
+  const defaultContainer = () => (
+    <React.Fragment>
+      <NavBar hamburger={ toggleMobileDrawer }/>
+      <SideDrawer showDrawer={ mobileDrawerState } toggleDrawer={ toggleMobileDrawer }/>
+      { sideBackdrop }
+        <Route exact path="/" render={ HomeSection } />
+        <Route path="/about" render={ AboutSection } />
+        <Route path="/maxine" render={ () => <ArtistSection name="Maxine" text={ ArtistText.maxineText } images={ ArtistImages.maxineImages } 
+                        linkLocation="https://www.instagram.com/maxinemahood/" blurb={ ArtistText.maxineBlurb } /> } />
+        <Route path="/jessy" render={ () => <ArtistSection name="Jessy" text={ ArtistText.jessyText } images={ ArtistImages.jessyImages } 
+                        linkLocation="https://www.instagram.com/jessy.tatts.cats/" blurb={ ArtistText.jessyBlurb }/> } />
+        <Route path="/jesse" render={ () => <ArtistSection name="Jesse" text={ ArtistText.jesseText } images={ ArtistImages.jesseImages } 
+                        linkLocation="https://www.instagram.com/pizzasharktattoo/" blurb={ ArtistText.jesseBlurb } /> } />
+        <Route path="/contact" render={ () => <ContactSection /> } />
+        <Route exact path="/merch" render={ () => <MerchSection /> } />
+      <Footer />
+    </React.Fragment>
+  )
+
+  const checkoutContainer = () => (
+    <Route path="/merch/checkout" render={ () => <MerchSectionCheckout /> } />  
+  )
+  
+
     return (
-      <Elements stripe={ stripePromise }>
-        <NavBar hamburger={ toggleMobileDrawer }/>
-          <SideDrawer showDrawer={ mobileDrawerState } toggleDrawer={ toggleMobileDrawer }/>
-          { sideBackdrop }
-            <Switch>
-              <Route exact path="/" component={ () => <HomeSection /> } />
-              <Route path="/about" component={ () => <AboutSection /> } />
-              <Route path="/maxine" component={ () => <ArtistSection name="Maxine" text={ ArtistText.maxineText } images={ ArtistImages.maxineImages } 
-                              linkLocation="https://www.instagram.com/maxinemahood/" blurb={ ArtistText.maxineBlurb } /> } />
-              <Route path="/jessy" component={ () => <ArtistSection name="Jessy" text={ ArtistText.jessyText } images={ ArtistImages.jessyImages } 
-                              linkLocation="https://www.instagram.com/jessy.tatts.cats/" blurb={ ArtistText.jessyBlurb }/> } />
-              <Route path="/jesse" component={ () => <ArtistSection name="Jesse" text={ ArtistText.jesseText } images={ ArtistImages.jesseImages } 
-                              linkLocation="https://www.instagram.com/pizzasharktattoo/" blurb={ ArtistText.jesseBlurb } /> } />
-              <Route path="/contact" component={ () => <ContactSection /> } />
-              <Route exact path="/merch" component={ () => <MerchSection /> } />
-              <Route path="/merch/checkout" component={ () => <MerchSectionCheckout /> } />  
-            </Switch>
-        <Footer />
-      </Elements>
+          <Switch>
+            <Route exact path="/merch/checkout" render={ checkoutContainer }/>
+            <Route render={ defaultContainer }/>
+          </Switch>
     )
   }
